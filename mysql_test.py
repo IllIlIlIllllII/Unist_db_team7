@@ -1,3 +1,7 @@
+# pip3 install pymysql
+# pip3 install mysqlclient
+# pip3 install mysql-connector-python
+
 import mysql.connector
 
 cnx = mysql.connector.connect(user='root', password='root',
