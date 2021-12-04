@@ -12,4 +12,3 @@ class Product(models.Model):
     ProductStock = models.CharField(max_length=255)
     ProductDateCreated = models.DateTimeField()
     ProductDateTour = models.DateTimeField()
-# Product.objects.raw('Select * From Product')
