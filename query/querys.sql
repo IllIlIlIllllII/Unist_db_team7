@@ -11,11 +11,11 @@ SELECT * FROM Product ORDER BY ProductPrice ASC;
 
 ---------------------------------- 2-2. 특정 여행사 list up ----------------------------------
 -- input : ProductCompany - "Samsung" or "Apple"
-SELECT * FROM Product WHERE ProductCompany="APPLE";
+SELECT * FROM Product WHERE ProductCompany=%s;
 
 ---------------------------------- 3. 장바구니 list up ----------------------------------
 -- input : UserID
-SELECT * FROM Cart JOIN Product ON Cart.ProductID = Cart.ProductID WHERE Cart.UserID=%s;
+SELECT * FROM Cart JOIN Product ON Cart.ProductID = Product.ProductID WHERE Cart.UserID=%s;
 
 ---------------------------------- 4. 장바구니 넣기 ----------------------------------
 -- 수량 없이 하겠습니다.
@@ -38,13 +38,13 @@ SELECT Product.ProductPrice - Coupon.DiscountAmount as NewPrice,
 
 ---------------------------------- 6. 구매하기 ----------------------------------
 -- input : ProductID, UserID, TotalPrice, CouponID(optional)
--- coupon 미사용시 CouponID = 0
+-- coupon 미사용시 CouponID = -1
 INSERT INTO Purchase (ProductID, UserID, TotalPrice, CouponID)
     VALUES (%s, %s, %s, %s);
 
 -- 쿠폰 사용시 아래 쿼리도 실행
--- input : ProductID, UserID
-UPDATE Coupon SET UsedCheck=TRUE WHERE ProductID=%s AND UserID=%s;
+-- input : CouponID
+UPDATE Coupon SET UsedCheck=TRUE WHERE CouponID=%s;
 
 
 
