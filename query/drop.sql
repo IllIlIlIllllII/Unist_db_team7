@@ -1,0 +1,8 @@
+DROP TABLE Cart;
+DROP TABLE Company;
+DROP TABLE Coupon;
+DROP TABLE Product;
+DROP TABLE Purchase;
+DROP TABLE Region;
+DROP TABLE Review;
+DROP TABLE Userx;
