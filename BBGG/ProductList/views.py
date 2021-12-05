@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.db import connection
 
 from .models import Product
+from .forms import ProductForm
 # Create your views here.
 
 def index(request):

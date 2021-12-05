@@ -1,0 +1,20 @@
+{% block body %}
+<!DOCTYPE html>
+<html>
+    <Head>
+        <meta charset="UTF-8">
+        <title>Purchase PAGE</title>
+    </Head>
+        <body>
+            <h1>Here is a Purchase PAGE</h1>
+            <h2>Product Name: {{ ProductName }}</h2>
+            <h2>Price: {{ ProductPrice }}</h2>
+            <h2>Stock: {{ ProductStock }}</h2>
+            <form method="post" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Purchase" />
+            </form>
+        </body>
+</html>
+{% endblock %}
