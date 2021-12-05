@@ -37,8 +37,10 @@ def index(request):
     nitems = cursor.fetchall()[0]
     
     cursor.execute("select sum(productprice * amount) from cart where UserID = %d" % userid)
-    total = "{:,}".format(cursor.fetchall()[0][0])
-    
+    try:
+        total = "{:,}".format(cursor.fetchall()[0][0])
+    except:
+        total = 0
 
 
 
