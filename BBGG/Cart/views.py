@@ -15,12 +15,19 @@ def index(request):
     )
 
     cursor = connection.cursor()
-    cursor.execute("select * from AAA") 
-
+    cursor.execute("select * from cart where UserID = 1000")
+    
     rows = cursor.fetchall()
-    # TODO: aggregation
-    total = "{:,}".format(12345679)    
-    nitems = 111
+    
+    # aggregation
+    cursor.execute("select count(*) from cart where UserID = 1000")  
+    nitems = cursor.fetchall()[0]
+    
+    cursor.execute("select sum(productprice * amount) from cart where UserID = 1000")  
+    total = "{:,}".format(cursor.fetchall()[0][0])
+    
+
+
 
 
     msg = "some-message"
@@ -33,5 +40,6 @@ def index(request):
             "rows": rows,
             "total": total,
             "nitems": nitems
+
         }
     )
