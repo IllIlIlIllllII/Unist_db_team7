@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h2>Region List</h2>
+        <svg>
+            <circle cx="54" cy="54" r="30" stroke="green" stroke-width="4" fill="yellow" onclick="location.href='#'" cursor="pointer"></circle>
+            <circle cx="44" cy="114" r="20" stroke="blue" stroke-width="4" fill="red" onclick="location.href='#'" cursor="pointer"></circle>
+            <circle cx="114" cy="134" r="35" stroke="black" stroke-width="4" fill="cyan" onclick="location.href='#'" cursor="pointer"></circle>
+            <text fill="black" font-size="20" x="20" y="20" font-family="Verdana">Some map</text>
+        </svg>
+        <h3>{{ qry }}</h3>
+        <p>(Description of the region)</p>
+        <table>
+            <tr>
+                <th>Field 1</th>
+                <th>Field 2</th>
+                <th>Field 3</th>
+                <th>Goto</th>
+            </tr>
+            {% for i in rows %}
+            <tr>
+                <td>{{i.0}}</td>
+                <td>{{i.1}}</td>
+                <td>{{i.2}}</td>
+                <td><button type="button" onclick="location.href='some-prefix{{i.0}}'">Go</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <!--
+        <h3>Single Message Test</h3>
+        <p>message: {{message}}</p>
+
+        <h3>Multiple Message Iteration Test</h3>
+        <ul>
+        {% for i in msgs %}
+            <li>Message: {{i}}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>SQL Select Test</h3>
+        <ul>
+        {% for i in rows %}
+            <li>row: {{i}} {{i.0}}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>SQL Select (with hyperlink) Test</h3>
+        <ul>
+        {% for i in rows %}
+            <li><a href="someprefix-{{i.0}}">Link: {{i}}</a></li>
+        {% endfor %}
+        </ul>
+        -->
+    </body>
+</html>
