@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'ProductList.apps.ProductlistConfig',
+    'Purchase.apps.PurchaseConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,7 +56,7 @@ ROOT_URLCONF = 'BBGG.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,12 +77,12 @@ WSGI_APPLICATION = 'BBGG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bbgg',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'ec2-3-38-108-28.ap-northeast-2.compute.amazonaws.com',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'xe',
+        'USER': 'system',
+        'PASSWORD': 'dmstjd12',
+        'HOST': '',
+        'PORT': '1521',
     }
 }
 

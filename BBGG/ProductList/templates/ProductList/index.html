@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<h1> Product List </h1>
+{% if latest_Product_list %}
+    <ul>
+    {% for Product in latest_Product_list %}
+        <li><a href="/ProductList/{{ Product.ProductID }}/">{{ Product.ProductName }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Products are available.</p>
+{% endif %}
