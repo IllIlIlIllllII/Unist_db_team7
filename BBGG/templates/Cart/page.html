@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head></head>
+    <body>
+        <h2>Cart</h2>
+        <!--
+        <svg>
+            <circle cx="54" cy="54" r="30" stroke="green" stroke-width="4" fill="yellow" onclick="location.href='#'" cursor="pointer"></circle>
+            <circle cx="44" cy="114" r="20" stroke="blue" stroke-width="4" fill="red" onclick="location.href='#'" cursor="pointer"></circle>
+            <circle cx="114" cy="134" r="35" stroke="black" stroke-width="4" fill="cyan" onclick="location.href='#'" cursor="pointer"></circle>
+            <text fill="black" font-size="20" x="20" y="20" font-family="Verdana">Some map</text>
+        </svg>-->
+        <p>{{nitems.0}} item(s) in total:</p>
+        <table>
+            <tr>
+                <th>Produce Name</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Purchase</th>
+            </tr>
+            {% for i in rows %}
+            <tr>
+                <td>{{i.3}}</td>
+                <td>{{i.2}}</td>
+                <td>{{i.4}}/item</td>
+                <td><button type="button" onclick="location.href='/Purchase/{{i.0}}'" style='cursor:pointer;'>Buy this</button></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p>total: {{total}} KRW</p>
+        <button type="button" onclick="location.href='?buyid={{userid}}'" style='cursor:pointer;'>Buy all</button>
+
+
+        <!--
+        <h3>Single Message Test</h3>
+        <p>message: {{message}}</p>
+
+        <h3>Multiple Message Iteration Test</h3>
+        <ul>
+        {% for i in msgs %}
+            <li>Message: {{i}}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>SQL Select Test</h3>
+        <ul>
+        {% for i in rows %}
+            <li>row: {{i}} {{i.0}}</li>
+        {% endfor %}
+        </ul>
+
+        <h3>SQL Select (with hyperlink) Test</h3>
+        <ul>
+        {% for i in rows %}
+            <li><a href="someprefix-{{i.0}}">Link: {{i}}</a></li>
+        {% endfor %}
+        </ul>
+        -->
+    </body>
+</html>

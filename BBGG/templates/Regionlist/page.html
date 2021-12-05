@@ -3,27 +3,32 @@
     <head></head>
     <body>
         <h2>Region List</h2>
-        <svg>
-            <circle cx="54" cy="54" r="30" stroke="green" stroke-width="4" fill="yellow" onclick="location.href='#'" cursor="pointer"></circle>
-            <circle cx="44" cy="114" r="20" stroke="blue" stroke-width="4" fill="red" onclick="location.href='#'" cursor="pointer"></circle>
-            <circle cx="114" cy="134" r="35" stroke="black" stroke-width="4" fill="cyan" onclick="location.href='#'" cursor="pointer"></circle>
-            <text fill="black" font-size="20" x="20" y="20" font-family="Verdana">Some map</text>
+        <svg style="width:100%;">
+            <circle cx="52" cy="52" r="30" stroke="green" stroke-width="4" fill="yellow" onclick="location.href='?qry=Seoul'" cursor="pointer"></circle>
+            <text fill="black" font-size="10" x="40" y="55" font-family="Verdana">Seoul</text>
+
+            <circle cx="44" cy="114" r="20" stroke="blue" stroke-width="4" fill="red" onclick="location.href='?qry=Jeju'" cursor="pointer"></circle>
+            <text fill="black" font-size="10" x="35" y="118" font-family="Verdana">Jeju</text>
+
+            <circle cx="114" cy="134" r="35" stroke="black" stroke-width="4" fill="cyan" onclick="location.href='?qry=Ulsan'" cursor="pointer"></circle>
+            <text fill="black" font-size="10" x="100" y="135" font-family="Verdana">Ulsan</text>
+
         </svg>
         <h3>{{ qry }}</h3>
-        <p>(Description of the region)</p>
+        <p>{{ desc }}</p>
         <table>
             <tr>
-                <th>Field 1</th>
-                <th>Field 2</th>
-                <th>Field 3</th>
-                <th>Goto</th>
+                <th>Tour Name</th>
+                <th>Region</th>
+                <th>Description</th>
+                <th>Add to cart</th>
             </tr>
-            {% for i in rows %}
+            {% for i in items %}
             <tr>
-                <td>{{i.0}}</td>
                 <td>{{i.1}}</td>
                 <td>{{i.2}}</td>
-                <td><button type="button" onclick="location.href='some-prefix{{i.0}}'">Go</button></td>
+                <td>{{i.4}}</td>
+                <td><button type="button" onclick="location.href='#'">Add to cart</button></td>
             </tr>
             {% endfor %}
         </table>
