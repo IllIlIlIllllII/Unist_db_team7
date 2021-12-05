@@ -56,7 +56,7 @@ ROOT_URLCONF = 'BBGG.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.oracle',
         'NAME': 'xe',
-        'USER': 'Jongchan',
-        'PASSWORD': '20141571',
+        'USER': 'system',
+        'PASSWORD': 'dmstjd12',
         'HOST': '',
         'PORT': '1521',
     }
