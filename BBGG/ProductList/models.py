@@ -12,3 +12,6 @@ class Product(models.Model):
     ProductStock = models.CharField(max_length=255)
     ProductDateCreated = models.DateTimeField()
     ProductDateTour = models.DateTimeField()
+    class Meta:
+        db_table = 'Product'
+        

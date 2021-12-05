@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <Head>
+        <meta charset="UTF-8">
+        <title> {{ ProductName }}</title>
+    </Head>
+        <body>
+            <h1>Product Name: {{ ProductName }}</h1>
+            <h1>Product ID: {{ ProductID }}</h1>
+            <h1>Tour time: {{ ProductDatetour }}</h1>
+            <h1>Region: {{ ProductRegion }}</h1>
+            <h1>Price: {{ ProductPrice }}</h1>
+            <h1>Company: {{ ProductCompany }}</h1>
+            <h1>Description: {{ ProductDescription }}</h1>
+            <h1>Stock: {{ ProductStock }}</h1>
+            <h1>
+                <a href="/Purchase/{{ ProductID }}/"> Buy Now </a>
+            </h1>
+            <h1>
+                <a href="/Cart/{{ ProductID }}/testuserid/"> Add to Cart </a>
+            </h1>
+        </body>
+</html>

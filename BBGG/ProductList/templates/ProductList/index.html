@@ -3,7 +3,7 @@
 {% if latest_Product_list %}
     <ul>
     {% for Product in latest_Product_list %}
-        <li><a href="/Purchase/{{ Product.ProductID }}/">{{ Product.ProductName }}</a></li>
+        <li><a href="/ProductList/{{ Product.ProductID }}/">{{ Product.ProductName }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

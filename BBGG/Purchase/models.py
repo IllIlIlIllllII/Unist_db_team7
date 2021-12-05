@@ -10,4 +10,6 @@ class Purchase(models.Model):
     TotalPrice = models.IntegerField()
     Requirement = models.CharField(max_length=255)
     CouponID = models.IntegerField()
+    class Meta:
+        db_table = 'Purchase'
  
