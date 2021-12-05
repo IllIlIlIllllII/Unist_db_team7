@@ -27,6 +27,7 @@ def index(request,ProductID):
                                 WHERE PurchaseID = (SELECT MAX(PurchaseID) FROM Purchase)""")
                 Max_id = cursor.fetchall()
                 cursor.close()
+                connection.close()
             Purchase_ID = 1
             time_now = datetime.datetime.today().replace(microsecond=0)
             Total_price = int(request.POST['Amount']) * Item[0][2]
@@ -38,11 +39,13 @@ def index(request,ProductID):
                 [Purchase_ID,ProductID,request.POST['USER_ID'],time_now,Total_price,request.POST['Requirement'],request.POST['Coupon_ID'],request.POST['Amount']])
                 connection.commit()
                 cursor.close()
+                connection.close()
             return HttpResponse("Your order has been processed! The Total price is %s!" % Total_price)
         else:
             return HttpResponse("That's not valid!")
     else:
         form = PurchaseForm()
         context = {'form':form, 'ProductName': Item[0][0],
-                    'ProductPrice': Item[0][1],'ProductStock': Item[0][2]}
+                    'ProductPrice': Item[0][2],'ProductStock': Item[0][1]}
         return render(request, 'Purchase/Purchase.html',context)
+
