@@ -7,7 +7,7 @@ import cx_Oracle
 # Create your views here.
 
 def index(request):
-
+    # please edit this
     connection = cx_Oracle.connect(
         user="system",
         password="dmstjd12",
@@ -15,12 +15,12 @@ def index(request):
     )
 
     cursor = connection.cursor()
-    cursor.execute("select * from cart where UserID = 1000")
+    cursor.execute("select * from cart where UserID = 1")
     
     rows = cursor.fetchall()
     
     # aggregation
-    cursor.execute("select count(*) from cart where UserID = 1000")  
+    cursor.execute("select count(*) from cart where UserID = 1")  
     nitems = cursor.fetchall()[0]
     
     cursor.execute("select sum(productprice * amount) from cart where UserID = 1000")  

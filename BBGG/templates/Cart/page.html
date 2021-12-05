@@ -10,25 +10,25 @@
             <circle cx="114" cy="134" r="35" stroke="black" stroke-width="4" fill="cyan" onclick="location.href='#'" cursor="pointer"></circle>
             <text fill="black" font-size="20" x="20" y="20" font-family="Verdana">Some map</text>
         </svg>-->
-        <p>{{nitems}} item(s) in total:</p>
+        <p>{{nitems.0}} item(s) in total:</p>
         <table>
             <tr>
-                <th>Field 1</th>
-                <th>Field 2</th>
-                <th>Field 3</th>
+                <th>Produce Name</th>
+                <th>Amount</th>
+                <th>Price</th>
                 <th>Purchase</th>
             </tr>
             {% for i in rows %}
             <tr>
-                <td>{{i.0}}</td>
-                <td>{{i.1}}</td>
+                <td>{{i.3}}</td>
                 <td>{{i.2}}</td>
-                <td><button type="button" onclick="location.href='some-prefix{{i.0}}'">Buy this</button></td>
+                <td>{{i.4}}/item</td>
+                <td><button type="button" onclick="location.href='/Purchase/{{i.0}}'" style='cursor:pointer;'>Buy this</button></td>
             </tr>
             {% endfor %}
         </table>
         <p>total: {{total}} KRW</p>
-        <button type="button" onclick="location.href='some-prefix{{i.0}}'">Buy all</button>
+        <button type="button" onclick="location.href='some-prefix{{i.0}}'" style='cursor:pointer;'>Buy all</button>
 
 
         <!--

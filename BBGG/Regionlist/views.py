@@ -13,30 +13,30 @@ def index(request):
         dsn="localhost:1521"
     )
 
-    # region code
-    # 0: entire
-    # 1: Seoul
-    # 2: ...
-    qry_to_region = [
-        ""
-    ]
-
     qry = "all"
     try:
         qry = request.GET['qry']
     except:
         pass
 
-    
-
-
     cursor = connection.cursor()
-    # TODO: filter by qry (where region = qry)
-    cursor.execute("select * from AAA") 
-
-    rows = cursor.fetchall()
+    # region querystring
+    cursor.execute("select * from region where regionname = '%s'" % str(qry)) 
+    res = cursor.fetchall()
     
+    code = res[0][1]
+    try:
+        desc = res[0][2]
+    except:
+        desc = "No description"
 
+
+    if qry == "all":
+        cursor.execute("select * from Product")
+    else:
+        cursor.execute("select * from Product where productregion = '%s'" % str(qry))
+
+    items = cursor.fetchall()
 
     msg = "some-message"
     return render(
@@ -45,7 +45,8 @@ def index(request):
         {
             "message": msg, 
             "msgs": ["msg1", "msg2", "msg3", "msg4", "this is last one"],
-            "rows": rows,
+            "desc": desc,
             "qry": qry,
+            "items": items,
         }
     )
