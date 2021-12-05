@@ -77,12 +77,8 @@ WSGI_APPLICATION = 'BBGG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
-        'NAME': 'xe',
-        'USER': 'system',
-        'PASSWORD': 'dmstjd12',
-        'HOST': '',
-        'PORT': '1521',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

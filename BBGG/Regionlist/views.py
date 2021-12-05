@@ -19,12 +19,12 @@ def index(request):
     except:
         pass
 
+
     cursor = connection.cursor()
     # region querystring
     cursor.execute("select * from region where regionname = '%s'" % str(qry)) 
     res = cursor.fetchall()
     
-    code = res[0][1]
     try:
         desc = res[0][2]
     except:
@@ -39,6 +39,7 @@ def index(request):
     items = cursor.fetchall()
 
     msg = "some-message"
+    
     return render(
         request, 
         "Regionlist/page.html",

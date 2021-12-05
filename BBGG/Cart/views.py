@@ -14,16 +14,29 @@ def index(request):
         dsn="localhost:1521"
     )
 
+    try:
+        buy = request.GET['buyid']
+        
+    except:
+        buy = -1
+
+    if buy != -1:
+        # do something (e.g., db update)
+        return HttpResponse("good.")
+
+
+    userid = 1000
+
     cursor = connection.cursor()
-    cursor.execute("select * from cart where UserID = 1")
+    cursor.execute("select * from cart where UserID = %d" % userid)
     
     rows = cursor.fetchall()
     
     # aggregation
-    cursor.execute("select count(*) from cart where UserID = 1")  
+    cursor.execute("select count(*) from cart where UserID = %d" % userid)  
     nitems = cursor.fetchall()[0]
     
-    cursor.execute("select sum(productprice * amount) from cart where UserID = 1000")  
+    cursor.execute("select sum(productprice * amount) from cart where UserID = %d" % userid)
     total = "{:,}".format(cursor.fetchall()[0][0])
     
 
@@ -39,7 +52,8 @@ def index(request):
             "msgs": ["msg1", "msg2", "msg3", "msg4", "this is last one"],
             "rows": rows,
             "total": total,
-            "nitems": nitems
+            "nitems": nitems,
+            "userid": userid
 
         }
     )
