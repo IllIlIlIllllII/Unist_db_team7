@@ -9,8 +9,8 @@ import cx_Oracle
 def index(request):
     # please edit this
     connection = cx_Oracle.connect(
-        user="system",
-        password="dmstjd12",
+        user="Jongchan",
+        password="20141571",
         dsn="localhost:1521"
     )
 
@@ -25,7 +25,7 @@ def index(request):
         return HttpResponse("good.")
 
 
-    userid = 1000
+    userid = 1
 
     cursor = connection.cursor()
     cursor.execute("select * from cart where UserID = %d" % userid)

@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Cart.apps.CartConfig',
     'ProductList.apps.ProductlistConfig',
     'Purchase.apps.PurchaseConfig',
     'django.contrib.admin',
@@ -77,8 +78,12 @@ WSGI_APPLICATION = 'BBGG.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'xe',
+        'USER': 'Jongchan',
+        'PASSWORD': '20141571',
+        'HOST': '',
+        'PORT': '1521',
     }
 }
 
