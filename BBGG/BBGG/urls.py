@@ -22,4 +22,5 @@ urlpatterns = [
     path('Purchase/', include('Purchase.urls')),
     path('Regionlist/', include('Regionlist.urls')),
     path('admin/', admin.site.urls),
+    path('', include('index.urls')),
 ]
