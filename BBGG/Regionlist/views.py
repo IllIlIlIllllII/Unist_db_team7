@@ -1,17 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-import cx_Oracle
+from django.db import connection
+# import cx_Oracle
 
 # Create your views here.
 
 def index(request):
 
-    connection = cx_Oracle.connect(
-        user="system",
-        password="dmstjd12",
-        dsn="localhost:1521"
-    )
+    # connection = cx_Oracle.connect(
+    #     user="Jongchan",
+    #     password="20141571",
+    #     dsn="localhost:1521"
+    # )
 
     qry = "all"
     try:

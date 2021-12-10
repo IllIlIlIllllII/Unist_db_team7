@@ -20,10 +20,10 @@
             </tr>
             {% for i in rows %}
             <tr>
+                <td>{{i.4}}</td>
                 <td>{{i.3}}</td>
-                <td>{{i.2}}</td>
-                <td>{{i.4}}/item</td>
-                <td><button type="button" onclick="location.href='/Purchase/{{i.0}}'" style='cursor:pointer;'>Buy this</button></td>
+                <td>{{i.5}}/item</td>
+                <td><button type="button" onclick="location.href='/Purchase/{{i.1}}'" style='cursor:pointer;'>Buy this</button></td>
             </tr>
             {% endfor %}
         </table>

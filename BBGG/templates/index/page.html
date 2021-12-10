@@ -16,10 +16,14 @@
         </svg>
 
         <h3>My page</h3>
+        {%if user_id %}
+        <h3>{{user_id}} Welcome!</h3>
         <button type="button" onclick="location.href='Cart'" style='cursor:pointer;'>Cart</button>
-        <button type="button" onclick="location.href='#'" style='cursor:pointer;'>Sign in</button>
-        <button type="button" onclick="location.href='#'" style='cursor:pointer;'>Sign up</button>
-
+        <button type="button" onclick="location.href='logout'" style='cursor:pointer;'>Logout</button>
+        {% else %}
+        <button type="button" onclick="location.href='signin'" style='cursor:pointer;'>Sign in</button>
+        <button type="button" onclick="location.href='signup'" style='cursor:pointer;'>Sign up</button>
+        {% endif %}
         <h3>Where do you want to go?</h3>
         <button type="button" onclick="location.href='ProductList'" style='cursor:pointer;'>Browse all product</button>
         <button type="button" onclick="location.href='Regionlist'" style='cursor:pointer;'>Search by region</button>

@@ -21,14 +21,14 @@
                 <th>Tour Name</th>
                 <th>Region</th>
                 <th>Description</th>
-                <th>Add to cart</th>
+                <th>See this Tour</th>
             </tr>
             {% for i in items %}
             <tr>
                 <td>{{i.1}}</td>
                 <td>{{i.2}}</td>
                 <td>{{i.4}}</td>
-                <td><button type="button" onclick="location.href='#'">Add to cart</button></td>
+                <td><button type="button" onclick="location.href='/ProductList/{{i.0}}'">See this Tour</button></td>
             </tr>
             {% endfor %}
         </table>

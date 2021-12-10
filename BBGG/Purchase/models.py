@@ -3,7 +3,7 @@ from django.db import models
 
 class Purchase(models.Model):
     PurchaseID = models.IntegerField(primary_key=True)
-    ProductID = models.IntegerField()
+    ProductID = models.ForeignKey("ProductList.Product",related_name="Purchase_product",on_delete = models.DO_NOTHING,db_column="ProductID")
     USERID = models.IntegerField()
     Amount = models.IntegerField()
     PurchaseDate = models.DateTimeField()
